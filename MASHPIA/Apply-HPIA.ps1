@@ -9,7 +9,7 @@
             1.3 - 2021-05-04 - Nicklas Eriksson & Daniel Gråhns - Fixed Logging and Errorhandling - Fixed parameters and PreCahche (needs to be tested)
             1.4 - 2021-05-05 - Daniel Gråhns - Tested Precache. 
             1.5 - 2021-06-14 - Nicklas Eriksson - Bug fix and added more logging. 
-            1.6 - 2022-02-15 - Marcus Wahlstam, Advitum AB
+            1.6 - 2022-02-15 - Marcus Wahlstam, Advitum AB <marcus.wahlstam@advitum.se>
                                 - Added search for extra Softpaq files and INF drivers (switch: -ExtraFilesCheck) inside folders ExtraINFFiles and ExtraSPFiles in the root of the package
                                 - Added -CleanUp switch (removes $env:SystemDrive\HPIA when done)
                                 - Added -OSVersion argument to support Windows 11 (only need to specify this if in PreCache mode, otherwise using currently installed OS)
