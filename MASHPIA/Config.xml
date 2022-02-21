@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<Install Name="InstallPath" Value="F:\SCCMSource\OSD\DriverPackages\HPIAOfflineRepo\SolutionFiles\MASHPIA" />	<!-- Install path for the HPIA script. -->
+	<Install Name="InstallHPIA" Enabled="True" Value="F:\SCCMSource\OSD\DriverPackages\HPIAOfflineRepo\SolutionFiles\HPIA" />	<!--Specify if you want HPIA to autoupdate and install location -->
+	<Install Name="ConfigMgrModule" Value="D:\Program Files\Microsoft Configuration Manager\AdminConsole\bin\ConfigurationManager.psd1" />	<!--Path to ConfigMgr module-->
+	<Install Name="RepositoryPath" Value="\\SERVER\SCCMSource\OSD\DriverPackages\HPIAOfflineRepo\DriverRepository" />	<!--Download path for the drivers-->
+	<Install Name="SupportComputerModels" Value="F:\SCCMSource\OSD\DriverPackages\HPIAOfflineRepo\SolutionFiles\MASHPIA\Import-Models.csv" />	<!--Specify location to CSV file for the supported computer models-->
+	<Setting Name="SiteCode" Value="PS1" />	<!--Speicify SiteCode for ConfigMgr-->
+	<Setting Name="CMFolderPath" Value="PS1:\Package\OSD\MASHPIA" />	<!-- Folder path in Configuration Manager -->
+	<Setting Name="DPGroupName" Value="DPGroup" />	<!-- Set DP GroupName -->
+	<Option Name="InstallHPCML" Enabled="False" />	<!--Specify if you want HPCML to autoupdate from Powershell Gallery-->
+	<Option Name="EnableSMTP" Enabled="False" SMTP="smtp.test.se" Adress="lab@lab.se" />	<!-- Specify SMTP and e-postadress -->
+	<HPIAFilter Name="Dock" Enabled="True" />	<!-- Enables Driver download for dock -->
+	<HPIAFilter Name="Driver" Enabled="True" />	<!-- Enables Driver download for drivers -->
+	<HPIAFilter Name="Firmware" Enabled="True" />	<!-- Enables Driver download for firmware -->
+	<HPIAFilter Name="Driverpack" Enabled="False" />	<!-- Enables Driver download for driverpack -->
+	<HPIAFilter Name="BIOS" Enabled="True" />	<!-- Enables HPIA to download for BIOS -->
+</Configuration>
