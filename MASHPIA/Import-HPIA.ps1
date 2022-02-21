@@ -1,4 +1,4 @@
-<# Author: Daniel Gråhns, Nicklas Eriksson
+<# Author: Daniel GrÃ¥hns, Nicklas Eriksson
  Date: 2021-02-11
  Purpose: Download HP Drivers to a repository and apply drivers with ConfigMgr adminservice and a custom script in the taskSequence. Check out ApplyHPIA.ps1 how to apply the drivers during oSD or IPU.
 
@@ -7,13 +7,13 @@
  Version: 1.8
  Changelog: 1.0 - 2021-02-11 - Nicklas Eriksson -  Script Edited and fixed Daniels crappy hack and slash code :)
             1.1 - 2021-02-18 - Nicklas Eriksson - Added HPIA to download to HPIA Download instead to Root Directory, Added BIOSPwd should be copy to HPIA so BIOS upgrades can be run during OSD. 
-            1.2 - 2021-04-14 - Daniel Gråhns - Added check if Offline folder is created
+            1.2 - 2021-04-14 - Daniel GrÃ¥hns - Added check if Offline folder is created
             1.3 - 2021-04-27 - Nicklas Eriksson - Completed the function so the script also downloaded BIOS updates during sync.
-            1.4 - 2021-05-21 - Nicklas Eriksson & Daniel Gråhns - Changed the logic for how to check if the latest HPIA is downloaded or not since HP changed the how the set the name for HPIA.
+            1.4 - 2021-05-21 - Nicklas Eriksson & Daniel GrÃ¥hns - Changed the logic for how to check if the latest HPIA is downloaded or not since HP changed the how the set the name for HPIA.
             1.5 - 2021-06-10 - Nicklas Eriksson - Added check to see that folder path exists in ConfigMgr otherwise creat the folder path.
             1.6 - 2021-06-17 - Nicklas Eriksson - Added -Quiet to Invoke-RepositorySync, added max log size so the log file will rollover.
-            1.7 - 2021-06-18 - Nicklas Eriksson & Daniel Gråhns - Added if it's the first time the model is running skip filewatch.
-            1.8 - 2022-02-09 - Modified by Marcus Wahlstam, Advitum AB
+            1.7 - 2021-06-18 - Nicklas Eriksson & Daniel GrÃ¥hns - Added if it's the first time the model is running skip filewatch.
+            1.8 - 2022-02-09 - Modified by Marcus Wahlstam, Advitum AB <marcus.wahlstam@advitum.se>
                                 - Fancier console output (see Print function)
                                 - Updated Config XML with more correct settings names
                                 - Removed unused code
