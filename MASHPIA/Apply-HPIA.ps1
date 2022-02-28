@@ -1,15 +1,15 @@
-<# Author: Nicklas Eriksson & Daniel Gråhns
+<# Author: Nicklas Eriksson & Daniel GrÃ¥hns
  Date: 2021-02-11
  Purpose: Download HP Drivers and apply HPIA drivers during OS Deployment or OS Upgrade.
 
  Version: 1.5
  Changelog: 1.0 - 2021-02-11 - Nicklas Eriksson -  Script was created. Purpose to replace the old script with purpose to use one script to handle downloading of drivers and install HPIA.
-            1.1 - 2021-04-30 - Daniel Gråhns - added a "c" that was missing just because I wanted to be in the changelog ;P and some other stuff that was hillarious ("reboob"), popup added on error.
-            1.2 - 2021-04-30 - Nicklas Eriksson & Daniel Gråhns -Added PreCache function.
-            1.3 - 2021-05-04 - Nicklas Eriksson & Daniel Gråhns - Fixed Logging and Errorhandling - Fixed parameters and PreCahche (needs to be tested)
-            1.4 - 2021-05-05 - Daniel Gråhns - Tested Precache. 
+            1.1 - 2021-04-30 - Daniel GrÃ¥hns - added a "c" that was missing just because I wanted to be in the changelog ;P and some other stuff that was hillarious ("reboob"), popup added on error.
+            1.2 - 2021-04-30 - Nicklas Eriksson & Daniel GrÃ¥hns -Added PreCache function.
+            1.3 - 2021-05-04 - Nicklas Eriksson & Daniel GrÃ¥hns - Fixed Logging and Errorhandling - Fixed parameters and PreCahche (needs to be tested)
+            1.4 - 2021-05-05 - Daniel GrÃ¥hns - Tested Precache. 
             1.5 - 2021-06-14 - Nicklas Eriksson - Bug fix and added more logging. 
-            1.6 - 2022-02-15 - Marcus Wahlstam, Advitum AB <marcus.wahlstam@advitum.se>
+            1.6 - 2022-02-15 - Marcus Wahlstam, Advitum AB
                                 - Added search for extra Softpaq files and INF drivers (switch: -ExtraFilesCheck) inside folders ExtraINFFiles and ExtraSPFiles in the root of the package
                                 - Added -CleanUp switch (removes $env:SystemDrive\HPIA when done)
                                 - Added -OSVersion argument to support Windows 11 (only need to specify this if in PreCache mode, otherwise using currently installed OS)
@@ -299,7 +299,7 @@ log -Message "Setting task sequence variable OSDDownloadDestinationVariable to a
 log -message "Setting task sequence variable OSDDownloadDestinationPath to a blank value" -Type 1 -Component HPIA -LogFile $LogFile
 
 
- if ($PreCache)
+ if (-not $PreCache)
  {
     try
     { 
