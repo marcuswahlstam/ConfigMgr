@@ -136,16 +136,25 @@ $Credential = New-Object -TypeName System.Management.Automation.PSCredential -Ar
 # Variables for ConfigMgr Adminservice
 if ([string]::IsNullOrEmpty($OSVersion))
 {
+    Log -Message "OSVersion is not specified, getting OSVersion from WMI" -Component "HPIA" -type 1 -LogFile $LogFile
     $WindowsOSCaption = (Get-CimInstance win32_OperatingSystem).Caption
-
+    Log -Message "Current OS Caption: $WindowsOSCaption" -Component "HPIA" -type 1 -LogFile $LogFile
+    
     if ($WindowsOSCaption -like "Microsoft Windows 11*")
     {
+        Log -Message "Setting OSMajorVersion to Win11" -Component "HPIA" -type 1 -LogFile $LogFile
         $OSMajorVersion = "Win11"
     }
     elseif ($WindowsOSCaption -like "Microsoft Windows 10*")
     {
+        Log -Message "Setting OSMajorVersion to Win10" -Component "HPIA" -type 1 -LogFile $LogFile
         $OSMajorVersion = "Win10"
     }
+}
+else
+{
+    Log -Message "OSVersion was specified, setting OSMajorVersion to $OSVersion" -Component "HPIA" -type 1 -LogFile $LogFile
+    $OSMajorVersion = $OSVersion
 }
 
 if ([string]::IsNullOrEmpty($Build))
@@ -164,7 +173,7 @@ $AdminServiceUri = $AdminServiceURL + $FilterPackages
 
 log -Message "Computermodel: $((Get-WmiObject -Class:Win32_ComputerSystem).Model)" -Type 1 -Component HPIA -LogFile $LogFile				        
 log -Message "Baseboard: $((Get-WmiObject -Class:Win32_BaseBoard).Product)" -Type 1 -Component HPIA -LogFile $LogFile
-log -Message "OSVersion: $($OSMajorVersion)" -Type 1 -Component HPIA -LogFile $LogFile	
+log -Message "OSMajorVersion: $($OSMajorVersion)" -Type 1 -Component HPIA -LogFile $LogFile	
 log -Message "WindowsBuild: $($WindowsBuild)" -Type 1 -Component HPIA -LogFile $LogFile			        
 log -Message "Will use this filter to attempt to get the correct driver package from adminservice: $($Filter)" -Type 1 -Component HPIA -LogFile $LogFile				        
 
